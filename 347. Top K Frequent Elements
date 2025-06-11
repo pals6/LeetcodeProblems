@@ -1,0 +1,20 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        #is the array sorted?
+        #empty array?
+        #k=0?
+        #naive approach
+        dict={}
+        #count the frequency of elements and store in a dictionary
+        for num in nums:
+            key=num
+            if key not in dict:
+                dict[key]=0
+            dict[key]+=1
+        
+       #sort dictionary by values
+        val_based = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1],reverse=True)}
+        #print(val_based)
+        #return k keys from dictionary
+        return list(val_based.keys())[:k]
+       
