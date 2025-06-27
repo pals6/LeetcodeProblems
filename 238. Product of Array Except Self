@@ -1,0 +1,25 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+        result=[1]*n
+        prefix=suffix=1
+        for i in range(len(nums)):
+            result[i]*=prefix
+            prefix*=nums[i]
+        for i in range(n-1,-1,-1):
+            result[i]*=suffix
+            suffix*=nums[i]
+        return result
+
+        #Naive Approach- Using Division
+        #First pass:
+            #1.Count how many zeros are in nums.
+            #2.Compute the product of all non-zero elements.
+
+        #Second pass:
+            #1.If there are two or more zeros, every entry in the output is 0.
+            #2.If there is exactly one zero, 
+            #then the position of that zero gets the total product,every other position is 0.
+            #3.If there are no zeros, product of all elements/nums[i]
+
+        
