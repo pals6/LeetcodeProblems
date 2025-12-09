@@ -1,0 +1,13 @@
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+      #Brute force
+      #Time complexity: O((n+m)log(n+m)) Space complexity: O(n+m)
+        l1=len(nums1)
+        l2=len(nums2)
+        merged=nums1+nums2
+        merged.sort()
+        totalLen=len(merged)
+        if totalLen%2==0:
+            return (merged[totalLen//2-1]+merged[totalLen//2])/2.0
+        else:
+            return (merged[totalLen//2])
